@@ -1,0 +1,41 @@
+package principal;
+
+import java.nio.channels.AcceptPendingException;
+
+import entities.Account;
+import entities.BusinessAccount;
+import entities.SavingsAccount;
+
+
+public class main {
+
+    public static void main(String[] args) {
+        
+        Account acc = new Account(1001, "Alex", 150.0);
+        BusinessAccount bacc = new BusinessAccount(1030, "Alice", 230.0, 500.0);
+
+        // UPCASTING
+        Account acc1 = bacc; // Super class pode receber um Sub class 
+        Account acc2 = new BusinessAccount(1004, "bob", 0.0, 300.0);
+        Account acc3 = new SavingsAccount(1203, "Luan", 0.0, 0.01);
+
+        // DOWNCASTING
+        BusinessAccount acc4 = (BusinessAccount)acc2; // Isso pode pois a variavel acc2 mesmo  send uma Super class foi iniciada com a mesma Sub class
+        acc4.loan(100.0);
+
+        // BusinessAccount acc5 = (BusinessAccount)acc3; Não pode, por quer a variavel acc3 é uma Super classe que foi iniciada com outra Sub class
+        if (acc3 instanceof BusinessAccount) {
+            BusinessAccount acc5 = (BusinessAccount)acc3;
+            acc5.loan(200.0);
+            System.out.println("Loan");
+        }
+        if (acc instanceof BusinessAccount) {
+            BusinessAccount acc5 = (BusinessAccount)acc3;
+            acc5.loan(200.0);
+            System.out.println("Sucesso!");
+        }
+
+
+    }
+
+}
