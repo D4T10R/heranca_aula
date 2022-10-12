@@ -41,7 +41,7 @@ public class Account {
 
      // METODOS
     public void withdraw(Double amount) {
-        balance -= amount;
+        balance -= amount + 5;
     }
 
     public void deposit(double amount) {

@@ -1,6 +1,7 @@
 package entities;
 
-public class SavingsAccount extends Account{
+public final class SavingsAccount extends Account{ // FINAL proibi a criação de uma sub classe ou de um sobreposição utilizando essa classe
+
     
     // ATRIBUCTOS 
     private Double interestRate;
@@ -28,6 +29,11 @@ public class SavingsAccount extends Account{
     // METODOS
     public void updateBalance() {
         balance += balance * interestRate;
+    }
+
+    @Override // SOBREPOSIÇÃO 
+    public void withdraw(Double amount) {
+        balance -= amount;
     }
 
 
